@@ -1,67 +1,64 @@
-PSV_Moku_Go
+# PSV_Moku_Go
 
-Post-Silicon Validation by Configuring the Moku:Go Board as an ATE Machine
+**Post-Silicon Validation by Configuring the Moku:Go Board as an ATE Machine**
 
-Overview
+## Overview
 
-This project demonstrates Post-Silicon Validation (PSV) using the Moku:Go board configured as an Automated Test Equipment (ATE) system. Two digital logic experiments were performed to validate and characterize IC functionality through automated testing and signal observation.
+This project demonstrates **Post-Silicon Validation (PSV)** using the **Moku:Go** board configured as an **Automated Test Equipment (ATE)** system. Two digital logic experiments were performed to validate and characterize IC functionality through automated testing and signal observation.
 
-Experiment 1: Testing the 74LS193 (4-bit Up/Down Counter)
+---
 
-The 74LS193 integrated circuit was tested by applying a set of test vectors through the Moku:Go’s digital output channels. The resulting output signals were captured and analyzed using the Logic Analyzer module of the Moku:Go.
+## Experiment 1: Testing the 74LS193 (4-bit Up/Down Counter)
 
-Objective: Verify correct counting behavior (up/down count, load, and clear functions).
+The **74LS193** integrated circuit was tested by applying a set of **test vectors** through the Moku:Go’s digital output channels. The resulting output signals were captured and analyzed using the **Logic Analyzer** module of the Moku:Go.
 
-Method:
+* **Objective:** Verify correct counting behavior (up/down count, load, and clear functions).
+* **Method:**
 
-Test vectors representing different input combinations were applied.
+  * Test vectors representing different input combinations were applied.
+  * Output waveforms were monitored and recorded.
+* **Observation:**
 
-Output waveforms were monitored and recorded.
+  * The output matched the expected logic behavior for all test vectors.
+  * Verified functional integrity of the 74LS193 IC.
 
-Observation:
+---
 
-The output matched the expected logic behavior for all test vectors.
+## Experiment 2: Stress Testing a 2-Bit Full Adder Circuit
 
-Verified functional integrity of the 74LS193 IC.
+A **2-bit full adder** was constructed on a breadboard using the following **74LS series ICs**:
 
-Experiment 2: Stress Testing a 2-Bit Full Adder Circuit
+* **74LS86** – XOR gates
+* **74LS08** – AND gates
+* **74LS32** – OR gates
 
-A 2-bit full adder was constructed on a breadboard using the following 74LS series ICs:
+### Procedure
 
-74LS86 – XOR gates
+* Randomized input patterns were generated and applied using the Moku:Go board.
+* Input frequency was gradually increased to observe timing behavior under stress conditions.
 
-74LS08 – AND gates
+### Results
 
-74LS32 – OR gates
+* At lower frequencies, the circuit produced **correct and stable outputs**.
+* Beyond a certain **threshold frequency**, the outputs began to show **functional errors**, including undefined (‘X’) states.
+* This behavior indicates **timing violations** due to propagation delays in the discrete IC logic network.
 
-Procedure
+---
 
-Randomized input patterns were generated and applied using the Moku:Go board.
+## Conclusion
 
-Input frequency was gradually increased to observe timing behavior under stress conditions.
+The Moku:Go board effectively functioned as a **flexible ATE platform** for both functional and timing-based validation of digital ICs.
 
-**Results**
+* **74LS193** validation confirmed correct operation across input vectors.
+* **2-bit full adder stress test** highlighted timing limits and signal degradation at higher frequencies.
 
-At lower frequencies, the circuit produced correct and stable outputs.
+These experiments demonstrate the feasibility of **Post-Silicon Validation workflows** using compact and reconfigurable lab instrumentation.
 
-Beyond a certain threshold frequency, the outputs began to show functional errors, including undefined (‘X’) states.
+---
 
-This behavior indicates timing violations due to propagation delays in the discrete IC logic network.
+## Tools & Components
 
-Conclusion
+* **Hardware:** Moku:Go, Breadboard, Jumper Wires
+* **ICs:** 74LS193, 74LS86, 74LS08, 74LS32
+* **Software:** Moku:Go App / Logic Analyzer & Waveform Generator modules
 
-The Moku:Go board effectively functioned as a flexible ATE platform for both functional and timing-based validation of digital ICs.
-
-74LS193 validation confirmed correct operation across input vectors.
-
-2-bit full adder stress test highlighted timing limits and signal degradation at higher frequencies.
-
-These experiments demonstrate the feasibility of Post-Silicon Validation workflows using compact and reconfigurable lab instrumentation.
-
-Tools & Components
-
-Hardware: Moku:Go, Breadboard, Jumper Wires
-
-ICs: 74LS193, 74LS86, 74LS08, 74LS32
-
-Software: Moku:Go App / Logic Analyzer & Waveform Generator modules
